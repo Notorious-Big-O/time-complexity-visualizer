@@ -1,4 +1,4 @@
-import { testAlgo } from "../utils/datasets.js";
+import { testAlgo } from "../utils/testing_framework.js";
 
 function countEvens(n) {
 let count = 0;
