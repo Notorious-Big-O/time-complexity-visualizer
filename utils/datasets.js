@@ -5,7 +5,7 @@ const maxSize = 7; // Number of zeros (e.g., 10^8) (100,000,000)
 const maxInt = 1000; // Each item would be from 1 to 1,000
 
 /*
- * Return array of fill filepaths for files that contain the datasets.
+ * Return array of full filepaths for files that contain the datasets.
  */
 function datasetFileNames() {
   const fileNames = [];
@@ -17,12 +17,17 @@ function datasetFileNames() {
 }
 
 /*
- * Retreive previously calculated datasets from file.
+ * Retrieve previously calculated datasets from file.
  * This operation should be done before starting any algorithm
  * testing.
  */
 function fetchRandomDataset(filename) {
-  return JSON.parse(fs.readFileSync(filename, "utf-8"));
+  try {
+    return JSON.parse(fs.readFileSync(filename, "utf-8"));
+  } catch (err) {
+    console.error(`Error reading or parsing file "${filename}":`, err.message);
+    return null;
+  }
 }
 
 /*
@@ -41,12 +46,8 @@ function createRandomDatasets() {
       results.push(Math.floor(Math.random() * maxInt + 1));
     }
     fs.writeFile(filename, JSON.stringify(results), (err) => {
-      if (err) throw err;
+      if (err)
+        throw new Error(`Failed to write file ${filename}: ${err.message}`);
     });
   });
 }
-
-datasetFileNames().forEach((fn) => {
-  console.log(fn);
-  console.log(fetchRandomDataset(fn));
-});
