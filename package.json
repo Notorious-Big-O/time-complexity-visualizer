@@ -11,6 +11,9 @@
     "algo": "node algo_tester.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@table-library/react-table-library": "^4.1.15",
+    "prettier": "^3.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
