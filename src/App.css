@@ -69,9 +69,10 @@
 }
 
 .timestamps {
-  height: 30vh;
-  width: 20vw;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
   border: 2px solid black;
-  border-radius: 1rem;
-  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
 }
