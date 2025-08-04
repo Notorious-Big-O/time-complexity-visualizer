@@ -17,7 +17,7 @@ const hardcodedData = {
         n_log_n: 8.75564871549032,
         n: 0.9765625,
         n_squared: 488.28125,
-        n_qubed: 244140.625,
+        n_cubed: 244140.625,
         exponential: 6.393341031047152e147,
       },
       {
@@ -27,7 +27,7 @@ const hardcodedData = {
         n_log_n: 133.47399896122386,
         n: 10.7421875,
         n_squared: 59082.03125,
-        n_qubed: 324951171.875,
+        n_cubed: 324951171.875,
         exponential: Infinity,
       },
       {
@@ -37,7 +37,7 @@ const hardcodedData = {
         n_log_n: 273.94544517212677,
         n: 20.5078125,
         n_squared: 215332.03125,
-        n_qubed: 2260986328.125,
+        n_cubed: 2260986328.125,
         exponential: Infinity,
       },
       {
@@ -47,7 +47,7 @@ const hardcodedData = {
         n_log_n: 421.40566254542756,
         n: 30.2734375,
         n_squared: 469238.28125,
-        n_qubed: 7273193359.375,
+        n_cubed: 7273193359.375,
         exponential: Infinity,
       },
       {
@@ -57,7 +57,7 @@ const hardcodedData = {
         n_log_n: 573.4929568950068,
         n: 40.0390625,
         n_squared: 820800.78125,
-        n_qubed: 16826416015.625,
+        n_cubed: 16826416015.625,
         exponential: Infinity,
       },
       {
@@ -67,7 +67,7 @@ const hardcodedData = {
         n_log_n: 729.0514560139773,
         n: 49.8046875,
         n_squared: 1270019.53125,
-        n_qubed: 32385498046.875,
+        n_cubed: 32385498046.875,
         exponential: Infinity,
       },
       {
@@ -77,7 +77,7 @@ const hardcodedData = {
         n_log_n: 887.3904481989487,
         n: 59.5703125,
         n_squared: 1816894.53125,
-        n_qubed: 55415283203.125,
+        n_cubed: 55415283203.125,
         exponential: Infinity,
       },
       {
@@ -87,7 +87,7 @@ const hardcodedData = {
         n_log_n: 1048.0495407185942,
         n: 69.3359375,
         n_squared: 2461425.78125,
-        n_qubed: 87380615234.375,
+        n_cubed: 87380615234.375,
         exponential: Infinity,
       },
       {
@@ -97,7 +97,7 @@ const hardcodedData = {
         n_log_n: 1210.699587198519,
         n: 79.1015625,
         n_squared: 3203613.28125,
-        n_qubed: 129746337890.625,
+        n_cubed: 129746337890.625,
         exponential: Infinity,
       },
       {
@@ -107,7 +107,7 @@ const hardcodedData = {
         n_log_n: 1375.0934396116515,
         n: 88.8671875,
         n_squared: 4043457.03125,
-        n_qubed: 183977294921.875,
+        n_cubed: 183977294921.875,
         exponential: Infinity,
       },
       {
@@ -117,7 +117,7 @@ const hardcodedData = {
         n_log_n: 1541.0386450281271,
         n: 98.6328125,
         n_squared: 4980957.03125,
-        n_qubed: 251538330078.125,
+        n_cubed: 251538330078.125,
         exponential: Infinity,
       },
       {
@@ -127,7 +127,7 @@ const hardcodedData = {
         n_log_n: 1708.3810710569858,
         n: 108.3984375,
         n_squared: 6016113.28125,
-        n_qubed: 333894287109.375,
+        n_cubed: 333894287109.375,
         exponential: Infinity,
       },
       {
@@ -137,7 +137,7 @@ const hardcodedData = {
         n_log_n: 1876.994482572596,
         n: 118.1640625,
         n_squared: 7148925.78125,
-        n_qubed: 432510009765.625,
+        n_cubed: 432510009765.625,
         exponential: Infinity,
       },
       {
@@ -147,7 +147,7 @@ const hardcodedData = {
         n_log_n: 2046.7735883712298,
         n: 127.9296875,
         n_squared: 8379394.53125,
-        n_qubed: 548850341796.875,
+        n_cubed: 548850341796.875,
         exponential: Infinity,
       },
       {
@@ -157,7 +157,7 @@ const hardcodedData = {
         n_log_n: 2217.6292234624843,
         n: 137.6953125,
         n_squared: 9707519.53125,
-        n_qubed: 684380126953.125,
+        n_cubed: 684380126953.125,
         exponential: Infinity,
       },
       {
@@ -167,7 +167,7 @@ const hardcodedData = {
         n_log_n: 2389.4849049043573,
         n: 147.4609375,
         n_squared: 11133300.78125,
-        n_qubed: 840564208984.375,
+        n_cubed: 840564208984.375,
         exponential: Infinity,
       },
       {
@@ -177,7 +177,7 @@ const hardcodedData = {
         n_log_n: 2562.2743039131337,
         n: 157.2265625,
         n_squared: 12656738.28125,
-        n_qubed: 1018867431640.625,
+        n_cubed: 1018867431640.625,
         exponential: Infinity,
       },
       {
@@ -187,7 +187,7 @@ const hardcodedData = {
         n_log_n: 2735.9393483620174,
         n: 166.9921875,
         n_squared: 14277832.03125,
-        n_qubed: 1220754638671.875,
+        n_cubed: 1220754638671.875,
         exponential: Infinity,
       },
       {
@@ -197,7 +197,7 @@ const hardcodedData = {
         n_log_n: 2910.4287705916972,
         n: 176.7578125,
         n_squared: 15996582.03125,
-        n_qubed: 1447690673828.125,
+        n_cubed: 1447690673828.125,
         exponential: Infinity,
       },
       {
@@ -207,7 +207,7 @@ const hardcodedData = {
         n_log_n: 3085.696977075475,
         n: 186.5234375,
         n_squared: 17812988.28125,
-        n_qubed: 1701140380859.375,
+        n_cubed: 1701140380859.375,
         exponential: Infinity,
       },
     ],
