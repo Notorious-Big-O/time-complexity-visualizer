@@ -173,8 +173,8 @@ function testAlgo(algoFn) {
       "log_n":${dataPoint.log_n},
       "n_log_n":${dataPoint.n_log_n},
       "n":${dataPoint.n},
-      "n_qubed":${dataPoint.n_qubed},
       "n_squared":${dataPoint.n_squared},
+      "n_cubed":${dataPoint.n_qubed},
       "exponential":${dataPoint.exponential},
       },`);
   });
