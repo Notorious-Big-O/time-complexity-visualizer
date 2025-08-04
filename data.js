@@ -1,6 +1,6 @@
-import { countEvens } from "./algo-snippets/algo-snippet-1.js";
-import { bubbleSort } from "./algo-snippets/algo-snippet-2.js";
-import { sortAndRemoveDup } from "./algo-snippets/algo-snippet-4.js";
+import { countEvens } from "./algo-snippets/countEvens.js";
+import { bubbleSort } from "./algo-snippets/bubbleSort.js";
+import { sortAndRemoveDup } from "./algo-snippets/sortAndRemoveDup.js";
 
 const hardcodedData = {
   bubbleSort: {

@@ -1,6 +1,4 @@
-import { testAlgo } from "../utils/datasets.js";
-
-function myAlgo(n) {
+function badComplexityExample(n) {
   let count = 0;
   for (let i = 0; i < n.length; i++) {
     for (let j = 0; j < n.length; j++) {
@@ -10,4 +8,4 @@ function myAlgo(n) {
   return count;
 }
 
-testAlgo(myAlgo);
+export { badComplexityExample };

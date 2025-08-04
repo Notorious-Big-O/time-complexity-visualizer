@@ -27,7 +27,7 @@ function testingParamsFactory() {
 function dataPointFactory() {
   return {
     numberOfInputs: undefined, // Original number of items in Input
-    algoDatapoint: undefined,  // Actual measured execution time for the algorithm (in milliseconds)
+    algoDatapoint: undefined, // Actual measured execution time for the algorithm (in milliseconds)
     exponential: undefined, // Example: 2^n
     n_qubed: undefined, // n^3
     n_squared: undefined, // n^2
@@ -46,7 +46,7 @@ function timeAtN(avgN, n, algoDatapoint) {
   const dataPoint = dataPointFactory();
   dataPoint.numberOfInputs = n;
   dataPoint.algoDatapoint = algoDatapoint;
-  dataPoint.exponential = n > MAX_EXPONENTIAL_N ? Infinity : avgN * (2 ** n);
+  dataPoint.exponential = n > MAX_EXPONENTIAL_N ? Infinity : avgN * 2 ** n;
   dataPoint.n = n * avgN;
   dataPoint.n_qubed = n ** 3 * avgN;
   dataPoint.n_squared = n ** 2 * avgN;
@@ -153,31 +153,4 @@ function timeAlgoComplexity(testingParams, callback, ...callBackArgs) {
   }
 }
 
-/*
- * Given a given function definition, call that function with increasingly large
- * numbers of input data. Print time taken in milliseconds. This is a wrapper
- * function for easy command line use. Use `timeAlgoComplexity` with second
- * callback argument to get data emition as tests progress.
- */
-function testAlgo(algoFn) {
-  const testingParams = testingParamsFactory();
-  testingParams.startingN = 500;
-  testingParams.endingN = 95500;
-  testingParams.resolution = 5000;
-  testingParams.algoFn = algoFn;
-
-  timeAlgoComplexity(testingParams, (dataPoint) => {
-    console.log(`{
-      "numberOfInputs":${dataPoint.numberOfInputs},
-      "algoDatapoint":${dataPoint.algoDatapoint},
-      "log_n":${dataPoint.log_n},
-      "n_log_n":${dataPoint.n_log_n},
-      "n":${dataPoint.n},
-      "n_squared":${dataPoint.n_squared},
-      "n_cubed":${dataPoint.n_qubed},
-      "exponential":${dataPoint.exponential},
-      },`);
-  });
-}
-
-export { testAlgo };
+export { testingParamsFactory, timeAlgoComplexity };
