@@ -3,6 +3,7 @@ import path from "path";
 import { createRandomDataset } from "./datasets.js";
 
 const MAXIMUM_ARRAY_SIZE = 10000000;
+const MAX_EXPONENTIAL_N = 7
 
 function testingParamsFactory() {
   return {
@@ -26,7 +27,7 @@ function testingParamsFactory() {
 function dataPointFactory() {
   return {
     numberOfInputs: undefined, // Original number of items in Input
-    algoDatapoint: undefined, //
+    algoDatapoint: undefined,  // Actual measured execution time for the algorithm (in milliseconds)
     exponential: undefined, // Example: 2^n
     n_qubed: undefined, // n^3
     n_squared: undefined, // n^2
@@ -45,7 +46,7 @@ function timeAtN(avgN, n, algoDatapoint) {
   const dataPoint = dataPointFactory();
   dataPoint.numberOfInputs = n;
   dataPoint.algoDatapoint = algoDatapoint;
-  dataPoint.exponential = avgN * 2 ** n;
+  dataPoint.exponential = n > MAX_EXPONENTIAL_N ? Infinity : avgN * (2 ** n);
   dataPoint.n = n * avgN;
   dataPoint.n_qubed = n ** 3 * avgN;
   dataPoint.n_squared = n ** 2 * avgN;
@@ -120,6 +121,7 @@ function estimateAverageN(testingParams) {
   if (totalTime === 0 || totalN === 0) {
     let message = "Unexpected results when estimateAverageN: ";
     message += `totalTime: ${totalTime}\ttotalN: ${totalN}\tFn: ${testingParams.algoFn}`;
+    throw new Error(message);
   }
 
   // Average time for n=1 operations:
