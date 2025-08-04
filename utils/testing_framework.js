@@ -3,7 +3,7 @@ import path from "path";
 import { createRandomDataset } from "./datasets.js";
 
 const MAXIMUM_ARRAY_SIZE = 10000000;
-const MAX_EXPONENTIAL_N = 7
+const MAX_EXPONENTIAL_N = 7; // To prevent overflow in O(2^n) calculations
 
 function testingParamsFactory() {
   return {
