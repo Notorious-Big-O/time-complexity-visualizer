@@ -9,7 +9,7 @@ const hardcodedData = {
     startingN: 500,
     endingN: 95500,
     resolution: 5000,
-    graphFilename: null,
+    graphFilename: 'graph-images/bubbleSort.algo.png',
     algoFn: bubbleSort,
     dataPoints: [
       {
@@ -219,7 +219,7 @@ const hardcodedData = {
     startingN: 1000,
     endingN: 100000,
     resolution: 10000,
-    graphFilename: null,
+    graphFilename: 'graph-images/sortAndRemoveDup.algo.png',
     algoFn: sortAndRemoveDup,
 
     dataPoints: [
@@ -330,7 +330,7 @@ const hardcodedData = {
     startingN: 1000,
     endingN: 9999999,
     resolution: 1000000,
-    graphFilename: null,
+    graphFilename: 'graph-images/countEvens.algo.png',
     algoFn: countEvens,
     dataPoints: [
       {
