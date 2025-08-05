@@ -14,7 +14,7 @@ const CodeBlock = ({ algoSelect }) => {
       })
       setFormattedCode(result)
     } catch (error) {
-      console.error('Prettier formatting failed:', error)
+      // console.error('Prettier formatting failed:', error)
       setFormattedCode(algoSelect.algoFn.toString())
     }
   }, [algoSelect])
