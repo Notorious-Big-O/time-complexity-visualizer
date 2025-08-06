@@ -33,7 +33,6 @@ function App() {
     testParams.algoFn = bubbleSort;
     const doAsync = async () => {
       await timeAlgoComplexity(testParams, (dp) => {
-        console.log(`DataPoint: ${JSON.stringify(dp)}`);
         setDataPoints((prev) => [...prev, dp]);
       });
     };
