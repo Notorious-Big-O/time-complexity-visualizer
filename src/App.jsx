@@ -10,6 +10,7 @@ import sortAndRemoveDupImg from '../graph-images/sortAndRemoveDup.algo.png'
 
 function App() {
   const [algoSelect, setAlgoSelect] = useState(hardcodedData.bubbleSort)
+  const [graphData, setGraphData] = useState(hardcodedData.bubbleSort)
   const [graphMatch, setGraphMatch] = useState()
 
   console.log(algoSelect.algoFn.name === 'bubbleSort')
@@ -31,7 +32,7 @@ function App() {
       <h1>BIG-O CALCULATOR</h1>
       <div className='top'>
         <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} />
-        <Graph graphMatch={graphMatch} />
+        <Graph graphMatch={graphMatch} graphData={graphData} />
       </div>
       <div className='bottom'>
         <CodePanel algoSelect={algoSelect} />
