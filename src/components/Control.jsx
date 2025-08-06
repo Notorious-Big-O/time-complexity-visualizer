@@ -1,6 +1,6 @@
 import { hardcodedData } from "../../data"
 
-const Control = ({ algoSelect, setAlgoSelect}) => {
+const Control = ({ algoSelect, setAlgoSelect, startingN, setStartingN, endingN, setEndingN, resolution, setResolution}) => {
 
   return (
     <div className="control">
@@ -15,17 +15,17 @@ const Control = ({ algoSelect, setAlgoSelect}) => {
       
       <div>
         <label htmlFor="">Starting</label>
-        <input type="text" id="starting" />
+        <input type="text" id="starting"  value={startingN} onChange={(e) => setStartingN(e.target.value)} />
       </div>
       
       <div>
         <label htmlFor="">Stopping</label>
-        <input type="text" id="stopping" />
+        <input type="text" id="stopping"  value={endingN} onChange={(e) => setEndingN(e.target.value)} />
       </div>
       
       <div>
         <label htmlFor="">Skip</label>
-        <input type="text" id="skip" />
+        <input type="text" id="skip" value={resolution} onChange={(e) => setResolution(e.target.value)} />
       
       </div>
     </div>

@@ -16,6 +16,10 @@ import { bubbleSort } from '../algo-snippets/bubbleSort';
 function App() {
   const [algoSelect, setAlgoSelect] = useState(hardcodedData.bubbleSort);
   const [dataPoints, setDataPoints] = useState([]);
+  const [startingN, setStartingN] = useState(500);
+  const [endingN, setEndingN] = useState(10000);
+  const [resolution, setResolution] = useState(100);
+
 
   const graphData = useMemo(
     () => ({
@@ -26,9 +30,9 @@ function App() {
 
   useEffect(() => {
     const testParams = testingParamsFactory();
-    testParams.startingN = 100;
-    testParams.endingN = 10000;
-    testParams.resolution = 100;
+    testParams.startingN = startingN;
+    testParams.endingN = endingN;
+    testParams.resolution = resolution;
 
     testParams.algoFn = bubbleSort;
     const doAsync = async () => {
@@ -44,7 +48,7 @@ function App() {
     <div className='app'>
       <h1>Notorious Big-O</h1>
       <div className='top'>
-        <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} />
+        <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} startingN={startingN} setStartingN={setStartingN} endingN={endingN} setEndingN={setEndingN} resolution={resolution} setResolution={setResolution} />
         <Graph graphData={graphData} />
       </div>
       <div className='bottom'>
