@@ -1,5 +1,3 @@
-import path from "path";
-
 import { createRandomDataset } from "./datasets.js";
 
 const MAXIMUM_ARRAY_SIZE = 10000000;
@@ -61,7 +59,7 @@ function timeAtN(avgN, n, algoDatapoint) {
  */
 function timeFunction(fn, ...args) {
   const start = Date.now();
-  const result = fn(...args);
+  fn(...args);
   const end = Date.now();
 
   return end - start;
