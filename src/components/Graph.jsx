@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+
 import {
   Chart as ChartJS,
   LineElement,
@@ -33,44 +34,48 @@ const COLORS = {
 };
 
 const Graph = ({ graphData, showComparisons = true }) => {
-  if (!graphData?.dataPoints) return <div>No data</div>;
+  const chartData = useMemo(() => {
+    const labels = graphData.dataPoints.map((d) => d.numberOfInputs);
+    console.log(`Graph component labels: ${labels}`);
 
-  const labels = graphData.dataPoints.map((d) => d.numberOfInputs);
+    // Helper to build dataset
+    const buildDataset = (label, key, color, prominent = false) => ({
+      label,
+      data: graphData.dataPoints.map((d) => {
+        const val = d[key];
+        return Number.isFinite(val) ? val : null;
+      }),
+      borderColor: color,
+      backgroundColor: color,
+      borderWidth: prominent ? 2.5 : 1,
+      pointRadius: prominent ? 3 : 0,
+      tension: 0.3,
+      hidden: !prominent && !showComparisons, // hide if not showing comparisons
+    });
 
-  // Helper to build dataset
-  const buildDataset = (label, key, color, prominent = false) => ({
-    label,
-    data: graphData.dataPoints.map((d) => {
-      const val = d[key];
-      return Number.isFinite(val) ? val : null;
-    }),
-    borderColor: color,
-    backgroundColor: color,
-    borderWidth: prominent ? 2.5 : 1,
-    pointRadius: prominent ? 3 : 0,
-    tension: 0.3,
-    hidden: !prominent && !showComparisons, // hide if not showing comparisons
-  });
+    const datasets = [
+      buildDataset(
+        'Algorithm Runtime',
+        'algoDatapoint',
+        COLORS.algoDatapoint,
+        true
+      ),
+      // buildDataset('log(n)', 'log_n', COLORS.log_n),
+      // buildDataset('n·log(n)', 'n_log_n', COLORS.n_log_n),
+      // buildDataset('n', 'n', COLORS.n),
+      // buildDataset("n^2", "n_squared", COLORS.n_squared),
+      // buildDataset("n^3", "n_cubed", COLORS.n_cubed),
+      // buildDataset("2ⁿ", "exponential", COLORS.exponential),
+    ];
 
-  const datasets = [
-    buildDataset(
-      'Algorithm Runtime',
-      'algoDatapoint',
-      COLORS.algoDatapoint,
-      true
-    ),
-    buildDataset('log(n)', 'log_n', COLORS.log_n),
-    buildDataset('n·log(n)', 'n_log_n', COLORS.n_log_n),
-    buildDataset('n', 'n', COLORS.n),
-    // buildDataset("n^2", "n_squared", COLORS.n_squared),
-    // buildDataset("n^3", "n_cubed", COLORS.n_cubed),
-    // buildDataset("2ⁿ", "exponential", COLORS.exponential),
-  ];
+    return {
+      labels,
+      datasets,
+    };
+  }, [graphData]);
 
-  const chartData = {
-    labels,
-    datasets,
-  };
+  // if (!graphData?.dataPoints) return <div>No data</div>;
+  // console.log(`Graph component: graphData: ${JSON.stringify(graphData)}`)
 
   const chartOptions = {
     responsive: true,

@@ -1,32 +1,40 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import { useEffect, useState, useMemo } from 'react';
+
 import Control from './components/Control';
 import Graph from './components/Graph';
 import CodePanel from './components/CodePanel';
-import { hardcodedData } from '../data';
+
+import './App.css';
+
 import {
   timeAlgoComplexity,
   testingParamsFactory,
 } from '../utils/testing_framework';
+import { hardcodedData } from '../data';
 import { bubbleSort } from '../algo-snippets/bubbleSort';
 
 function App() {
   const [algoSelect, setAlgoSelect] = useState(hardcodedData.bubbleSort);
-  const [graphData, setGraphData] = useState(hardcodedData.bubbleSort);
+  const [dataPoints, setDataPoints] = useState([]);
 
-  console.log(algoSelect.algoFn.name === 'bubbleSort');
+  const graphData = useMemo(
+    () => ({
+      dataPoints,
+    }),
+    [dataPoints]
+  );
 
   useEffect(() => {
     const testParams = testingParamsFactory();
-    testParams.startingN = 500;
-    testParams.endingN = 1000;
+    testParams.startingN = 100;
+    testParams.endingN = 10000;
     testParams.resolution = 100;
 
     testParams.algoFn = bubbleSort;
     const doAsync = async () => {
-      await timeAlgoComplexity(testParams, (dataPoint) => {
-        console.log(`DataPoint: ${JSON.stringify(dataPoint)}`);
-        // setGraphData(data);
+      await timeAlgoComplexity(testParams, (dp) => {
+        console.log(`DataPoint: ${JSON.stringify(dp)}`);
+        setDataPoints((prev) => [...prev, dp]);
       });
     };
 
@@ -35,7 +43,7 @@ function App() {
 
   return (
     <div className='app'>
-      <h1>BIG-O CALCULATOR</h1>
+      <h1>Notorious Big-O</h1>
       <div className='top'>
         <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} />
         <Graph graphData={graphData} />
