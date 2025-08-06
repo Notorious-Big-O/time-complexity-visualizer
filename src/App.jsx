@@ -16,6 +16,9 @@ import { bubbleSort } from '../algo-snippets/bubbleSort';
 function App() {
   const [algoSelect, setAlgoSelect] = useState(hardcodedData.bubbleSort);
   const [dataPoints, setDataPoints] = useState([]);
+  const [startingN, setStartingN] = useState(500);
+  const [endingN, setEndingN] = useState(10000);
+  const [resolution, setResolution] = useState(100);
 
   const graphData = useMemo(
     () => ({
@@ -24,27 +27,35 @@ function App() {
     [dataPoints]
   );
 
-  useEffect(() => {
+  const runTests = async () => {
+    setDataPoints([]); // Clear previous results
+
     const testParams = testingParamsFactory();
-    testParams.startingN = 100;
-    testParams.endingN = 10000;
-    testParams.resolution = 100;
+    testParams.startingN = startingN;
+    testParams.endingN = endingN;
+    testParams.resolution = resolution;
+    testParams.algoFn = algoSelect.fn || bubbleSort;
 
-    testParams.algoFn = bubbleSort;
-    const doAsync = async () => {
-      await timeAlgoComplexity(testParams, (dp) => {
-        setDataPoints((prev) => [...prev, dp]);
-      });
-    };
-
-    doAsync();
-  }, []);
+    await timeAlgoComplexity(testParams, (dp) => {
+      setDataPoints((prev) => [...prev, dp]);
+    });
+  };
 
   return (
     <div className='app'>
       <h1>Notorious Big-O</h1>
       <div className='top'>
-        <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} />
+        <Control
+          algoSelect={algoSelect}
+          setAlgoSelect={setAlgoSelect}
+          startingN={startingN}
+          setStartingN={setStartingN}
+          endingN={endingN}
+          setEndingN={setEndingN}
+          resolution={resolution}
+          setResolution={setResolution}
+          runTests={runTests}
+        />
         <Graph graphData={graphData} />
       </div>
       <div className='bottom'>

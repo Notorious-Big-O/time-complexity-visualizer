@@ -1,9 +1,11 @@
 const Timestamps = ({ algoSelect }) => {
-  const data = algoSelect.dataPoints
- 
+  const data = algoSelect.dataPoints;
+
   return (
-    <div className="timestamps">
-      <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0 }}>
+    <div className='timestamps'>
+      <table
+        style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0 }}
+      >
         <thead>
           <tr>
             <th
@@ -30,7 +32,9 @@ const Timestamps = ({ algoSelect }) => {
             >
               n
             </th>
-            <th style={{ width: '50%', padding: '0.5rem', textAlign: 'center' }}>
+            <th
+              style={{ width: '50%', padding: '0.5rem', textAlign: 'center' }}
+            >
               milliseconds
             </th>
           </tr>
@@ -39,11 +43,17 @@ const Timestamps = ({ algoSelect }) => {
 
       <div
         style={{
-          height: '180px', 
+          height: '180px',
           overflowY: 'auto',
         }}
       >
-        <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0 }}>
+        <table
+          style={{
+            width: '100%',
+            borderCollapse: 'separate',
+            borderSpacing: 0,
+          }}
+        >
           <tbody>
             {data.map((obj, i) => (
               <tr key={i}>
@@ -64,8 +74,7 @@ const Timestamps = ({ algoSelect }) => {
           </tbody>
         </table>
       </div>
-</div>
-
-  )
-}
-export default Timestamps
+    </div>
+  );
+};
+export default Timestamps;
