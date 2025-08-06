@@ -14,7 +14,7 @@ const Control = ({
   return (
     <div className='control'>
       <div>
-        <label htmlFor=''>Algo</label>
+        <label htmlFor=''>Algo: </label>
         <select
           name=''
           id=''
@@ -27,9 +27,9 @@ const Control = ({
       </div>
 
       <div>
-        <label htmlFor=''>Starting</label>
+        <label htmlFor=''>Starting: </label>
         <input
-          type='text'
+          type='number'
           id='starting'
           value={startingN}
           onChange={(e) => setStartingN(e.target.value)}
@@ -37,9 +37,9 @@ const Control = ({
       </div>
 
       <div>
-        <label htmlFor=''>Stopping</label>
+        <label htmlFor=''>Stopping: </label>
         <input
-          type='text'
+          type='number'
           id='stopping'
           value={endingN}
           onChange={(e) => setEndingN(e.target.value)}
@@ -47,9 +47,9 @@ const Control = ({
       </div>
 
       <div>
-        <label htmlFor=''>Skip</label>
+        <label htmlFor=''>Increment: </label>
         <input
-          type='text'
+          type='number'
           id='skip'
           value={resolution}
           onChange={(e) => setResolution(e.target.value)}
