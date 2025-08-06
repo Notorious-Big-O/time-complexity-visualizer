@@ -24,7 +24,7 @@ const COLORS = {
   exponential: 'rgba(199, 199, 199, 0.3)',
 };
 
-const Graph = ({ graphMatch, graphData, showComparisons = true }) => {
+const Graph = ({ graphData, showComparisons = true }) => {
   if (!graphData?.dataPoints) return <div>No data</div>;
 
   const labels = graphData.dataPoints.map((d) => d.numberOfInputs);

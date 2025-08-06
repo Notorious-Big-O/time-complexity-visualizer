@@ -135,9 +135,8 @@ function estimateAverageN(testingParams) {
  * For each iteration/run of the algorithm, a dataPoint as described in the
  * dataPointFactory, is returned with the data for algorithm execution.
  */
-function timeAlgoComplexity(testingParams, callback, ...callBackArgs) {
+async function timeAlgoComplexity(testingParams, callback, ...callBackArgs) {
   const avgN = estimateAverageN(testingParams);
-  console.log(`avgN: ${avgN}`);
 
   for (
     let n = testingParams.startingN;
@@ -148,7 +147,11 @@ function timeAlgoComplexity(testingParams, callback, ...callBackArgs) {
     const time = timeFunction(testingParams.algoFn, dataset);
     const dataPoint = timeAtN(avgN, dataset.length, time);
     callback(dataPoint, ...callBackArgs);
+
+    // Allow the browser to breathe
+    await new Promise((res) => setTimeout(res, 0));
   }
 }
+
 
 export { testingParamsFactory, timeAlgoComplexity };
