@@ -20,7 +20,6 @@ function App() {
   const [endingN, setEndingN] = useState(10000);
   const [resolution, setResolution] = useState(100);
 
-
   const graphData = useMemo(
     () => ({
       dataPoints,
@@ -28,27 +27,35 @@ function App() {
     [dataPoints]
   );
 
-  useEffect(() => {
+  const runTests = async () => {
+    setDataPoints([]); // Clear previous results
+
     const testParams = testingParamsFactory();
     testParams.startingN = startingN;
     testParams.endingN = endingN;
     testParams.resolution = resolution;
+    testParams.algoFn = algoSelect.fn || bubbleSort;
 
-    testParams.algoFn = bubbleSort;
-    const doAsync = async () => {
-      await timeAlgoComplexity(testParams, (dp) => {
-        setDataPoints((prev) => [...prev, dp]);
-      });
-    };
-
-    doAsync();
-  }, []);
+    await timeAlgoComplexity(testParams, (dp) => {
+      setDataPoints((prev) => [...prev, dp]);
+    });
+  };
 
   return (
     <div className='app'>
       <h1>Notorious Big-O</h1>
       <div className='top'>
-        <Control algoSelect={algoSelect} setAlgoSelect={setAlgoSelect} startingN={startingN} setStartingN={setStartingN} endingN={endingN} setEndingN={setEndingN} resolution={resolution} setResolution={setResolution} />
+        <Control
+          algoSelect={algoSelect}
+          setAlgoSelect={setAlgoSelect}
+          startingN={startingN}
+          setStartingN={setStartingN}
+          endingN={endingN}
+          setEndingN={setEndingN}
+          resolution={resolution}
+          setResolution={setResolution}
+          runTests={runTests}
+        />
         <Graph graphData={graphData} />
       </div>
       <div className='bottom'>
