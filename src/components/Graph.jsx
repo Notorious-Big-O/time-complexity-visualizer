@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from 'react';
+
 import {
   Chart as ChartJS,
   LineElement,
@@ -8,11 +9,19 @@ import {
   Tooltip,
   Legend,
   CategoryScale,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
 // Register required components
-ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend, CategoryScale);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale
+);
 
 const COLORS = {
   algoDatapoint: 'rgba(255, 99, 132, 1)', // Prominent
@@ -24,51 +33,60 @@ const COLORS = {
   exponential: 'rgba(199, 199, 199, 0.3)',
 };
 
-const Graph = ({ graphMatch, graphData, showComparisons = true }) => {
-  if (!graphData?.dataPoints) return <div>No data</div>;
+const Graph = ({ graphData, showComparisons = true }) => {
+  const chartData = useMemo(() => {
+    const labels = graphData.dataPoints.map((d) => d.numberOfInputs);
+    console.log(`Graph component labels: ${labels}`);
 
-  const labels = graphData.dataPoints.map((d) => d.numberOfInputs);
+    // Helper to build dataset
+    const buildDataset = (label, key, color, prominent = false) => ({
+      label,
+      data: graphData.dataPoints.map((d) => {
+        const val = d[key];
+        return Number.isFinite(val) ? val : null;
+      }),
+      borderColor: color,
+      backgroundColor: color,
+      borderWidth: prominent ? 2.5 : 1,
+      pointRadius: prominent ? 3 : 0,
+      tension: 0.3,
+      hidden: !prominent && !showComparisons, // hide if not showing comparisons
+    });
 
-  // Helper to build dataset
-  const buildDataset = (label, key, color, prominent = false) => ({
-    label,
-    data: graphData.dataPoints.map((d) => {
-      const val = d[key];
-      return Number.isFinite(val) ? val : null;
-    }),
-    borderColor: color,
-    backgroundColor: color,
-    borderWidth: prominent ? 2.5 : 1,
-    pointRadius: prominent ? 3 : 0,
-    tension: 0.3,
-    hidden: !prominent && !showComparisons, // hide if not showing comparisons
-  });
+    const datasets = [
+      buildDataset(
+        'Algorithm Runtime',
+        'algoDatapoint',
+        COLORS.algoDatapoint,
+        true
+      ),
+      // buildDataset('log(n)', 'log_n', COLORS.log_n),
+      // buildDataset('n·log(n)', 'n_log_n', COLORS.n_log_n),
+      // buildDataset('n', 'n', COLORS.n),
+      // buildDataset("n^2", "n_squared", COLORS.n_squared),
+      // buildDataset("n^3", "n_cubed", COLORS.n_cubed),
+      // buildDataset("2ⁿ", "exponential", COLORS.exponential),
+    ];
 
-  const datasets = [
-    buildDataset("Algorithm Runtime", "algoDatapoint", COLORS.algoDatapoint, true),
-    buildDataset("log(n)", "log_n", COLORS.log_n),
-    buildDataset("n·log(n)", "n_log_n", COLORS.n_log_n),
-    buildDataset("n", "n", COLORS.n),
-    // buildDataset("n^2", "n_squared", COLORS.n_squared),
-    // buildDataset("n^3", "n_cubed", COLORS.n_cubed),
-    // buildDataset("2ⁿ", "exponential", COLORS.exponential),
-  ];
+    return {
+      labels,
+      datasets,
+    };
+  }, [graphData]);
 
-  const chartData = {
-    labels,
-    datasets,
-  };
+  // if (!graphData?.dataPoints) return <div>No data</div>;
+  // console.log(`Graph component: graphData: ${JSON.stringify(graphData)}`)
 
   const chartOptions = {
     responsive: true,
     plugins: {
       title: {
         display: true,
-        text: "Algorithm Runtime vs Input Size",
+        text: 'Algorithm Runtime vs Input Size',
       },
       legend: {
         display: true,
-        position: "bottom",
+        position: 'bottom',
       },
       tooltip: {
         mode: 'index',
@@ -79,13 +97,13 @@ const Graph = ({ graphMatch, graphData, showComparisons = true }) => {
       x: {
         title: {
           display: true,
-          text: "Number of Inputs (N)",
+          text: 'Number of Inputs (N)',
         },
       },
       y: {
         title: {
           display: true,
-          text: "Milliseconds",
+          text: 'Milliseconds',
         },
         beginAtZero: true,
       },
@@ -93,7 +111,7 @@ const Graph = ({ graphMatch, graphData, showComparisons = true }) => {
   };
 
   return (
-    <div className="graph">
+    <div className='graph'>
       <Line data={chartData} options={chartOptions} />
     </div>
   );
