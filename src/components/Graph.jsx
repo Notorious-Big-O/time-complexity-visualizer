@@ -25,12 +25,12 @@ ChartJS.register(
 
 const COLORS = {
   algoDatapoint: 'rgba(255, 99, 132, 1)', // Prominent
-  log_n: 'rgba(54, 162, 235, 0.3)',
-  n_log_n: 'rgba(255, 206, 86, 0.3)',
-  n: 'rgba(75, 192, 192, 0.3)',
-  n_squared: 'rgba(153, 102, 255, 0.3)',
-  n_cubed: 'rgba(255, 159, 64, 0.3)',
-  exponential: 'rgba(199, 199, 199, 0.3)',
+  log_n: 'rgba(27, 6, 255, 0.98)',
+  n_log_n: 'rgb(123, 0, 255)',
+  n: 'rgba(0, 255, 38, 0.9)',
+  n_squared: 'rgb(230, 255, 4)',
+  n_cubed: 'rgb(255, 111, 0)',
+  exponential: 'rgb(255, 6, 6)',
 };
 
 const Graph = ({ graphData, showComparisons = true }) => {
@@ -60,9 +60,9 @@ const Graph = ({ graphData, showComparisons = true }) => {
         COLORS.algoDatapoint,
         true
       ),
-      // buildDataset('log(n)', 'log_n', COLORS.log_n),
-      // buildDataset('n·log(n)', 'n_log_n', COLORS.n_log_n),
-      // buildDataset('n', 'n', COLORS.n),
+      buildDataset('log(n)', 'log_n', COLORS.log_n),
+      buildDataset('n·log(n)', 'n_log_n', COLORS.n_log_n),
+      buildDataset('n', 'n', COLORS.n),
       // buildDataset("n^2", "n_squared", COLORS.n_squared),
       // buildDataset("n^3", "n_cubed", COLORS.n_cubed),
       // buildDataset("2ⁿ", "exponential", COLORS.exponential),
