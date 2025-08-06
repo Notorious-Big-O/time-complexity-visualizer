@@ -6,7 +6,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   test: {
-    // allow `describe`, `it`, `expect` globally
+    // allow `describe`, `it`, `expect` globally, , but the injection only happens at runtime, so it is better for us to 
+    // import them explictly for the ESLint to know about those globals. This is more like a pro
     globals: true,
     // we can also just use happy-dom but we might use jsdom later for canvas           
     environment: 'jsdom',    
