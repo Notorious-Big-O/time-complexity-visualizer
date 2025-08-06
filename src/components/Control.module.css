@@ -1,0 +1,11 @@
+.control{
+  display:flex;
+  flex-direction: column;
+  background-color: pink;
+}
+
+.algoSection {
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+}

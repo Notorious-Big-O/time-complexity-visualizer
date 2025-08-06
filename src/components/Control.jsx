@@ -1,4 +1,5 @@
 import { hardcodedData } from '../../data';
+import styles from "./Control.module.css"
 
 const Control = ({
   algoSelect,
@@ -14,16 +15,21 @@ const Control = ({
   return (
     <div className='control'>
       <div>
-        <label htmlFor=''>Algo: </label>
-        <select
-          name=''
-          id=''
-          onChange={(e) => setAlgoSelect(hardcodedData[e.target.value])}
-        >
-          <option value='bubbleSort'>bubbleSort</option>
-          <option value='sortAndRemoveDup'>sortAndRemoveDup</option>
-          <option value='countEvens'>countEvens</option>
-        </select>
+        <div className={styles.algoSection}>
+          <label htmlFor=''>Algo: </label>
+
+          <select
+            name=''
+            id=''
+            onChange={(e) => setAlgoSelect(hardcodedData[e.target.value])}
+          >
+            <option value='bubbleSort'>
+              bubble<div>Sort</div>
+            </option>
+            <option value='sortAndRemoveDup'>sortAndRemoveDup</option>
+            <option value='countEvens'>countEvens</option>
+          </select>
+        </div>
       </div>
 
       <div>
