@@ -36,7 +36,6 @@ const COLORS = {
 const Graph = ({ graphData, showComparisons = true }) => {
   const chartData = useMemo(() => {
     const labels = graphData.dataPoints.map((d) => d.numberOfInputs);
-    console.log(`Graph component labels: ${labels}`);
 
     // Helper to build dataset
     const buildDataset = (label, key, color, prominent = false) => ({
