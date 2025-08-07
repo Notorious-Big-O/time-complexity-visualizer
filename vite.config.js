@@ -12,6 +12,6 @@ export default defineConfig({
     // we can also just use happy-dom but we might use jsdom later for canvas           
     environment: 'jsdom',    
     //tell vitest to discover and run them as a test
-    include: ['src/**/*.{test,spec}.{js,jsx}','algo-snippets/**/*.{test,spec}.{js,jsx}','tests/**/*.test.js'],
+    include: ['src/**/*.{test,spec}.{js,jsx}','algo-snippets/**/*.{test,spec}.{js,jsx}','utils/**/*.{test,spec}.{js,jsx}','tests/**/*.test.js'],
   },
 });
