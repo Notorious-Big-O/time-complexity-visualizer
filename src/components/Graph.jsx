@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import styles from './Graph.module.css';
 
 import {
   Chart as ChartJS,
@@ -110,7 +111,10 @@ const Graph = ({ graphData, showComparisons = true }) => {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div
+      className={styles.graphContainer}
+      style={{ width: '100%', height: '100%' }}
+    >
       <Line data={chartData} options={chartOptions} />
     </div>
   );

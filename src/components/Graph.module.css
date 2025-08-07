@@ -1,0 +1,9 @@
+.graphContainer {
+  border-radius: 14px;
+  background-image: linear-gradient(
+    to right,
+    rgb(209, 233, 255) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(209, 233, 255) 100%
+  );
+}
