@@ -1,4 +1,4 @@
-import { testingParamsFactory, dataPointFactory, timeAtN} from './testing_framework.js';
+import { testingParamsFactory, dataPointFactory, timeAtN, timeFunction} from './testing_framework.js';
 import { describe, it, expect } from 'vitest';
 
 describe('testingParamsFactory()', () => {
@@ -35,5 +35,14 @@ describe('timeAtN()', () => {
     expect(dp.n_squared).toBe(4);
     expect(dp.n_log_n).toBe(2);
     expect(dp.log_n).toBe(1);
+  });
+});
+
+describe('timeFunction()', () => {
+  it('expect time for how long a function takes to complete', () => {
+    const arr = [1,2,3];
+    const time = timeFunction(x => x + 1, arr);
+    expect(typeof time).toBe('number');
+    expect(time).toBeGreaterThanOrEqual(0);
   });
 });
