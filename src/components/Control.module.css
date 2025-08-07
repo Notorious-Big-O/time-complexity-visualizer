@@ -1,7 +1,6 @@
 .control {
   display: flex;
   flex-direction: column;
-  background-color: pink;
 }
 .top {
   background-color: rgb(111, 184, 209);
@@ -17,7 +16,6 @@
   font-size: 20px;
   font-weight: 700;
   color: #000000;
-  padding: 1rem;
 }
 
 .algoSelectBox {
@@ -35,7 +33,6 @@
     rgb(255, 255, 255) 50%,
     rgb(255, 174, 203) 100%
   );
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
 }
 
@@ -55,7 +52,6 @@
   font-size: 14px;
   text-align: center;
   line-height: 14px;
-  padding: 2px;
   border-radius: 5px;
   font-family: 'Arial Black', Gadget, sans-serif;
   background-image: linear-gradient(
@@ -64,7 +60,6 @@
     rgb(255, 255, 255) 50%,
     rgb(255, 204, 145) 100%
   );
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
 }
 .endingInput {
@@ -72,7 +67,6 @@
   font-size: 14px;
   text-align: center;
   line-height: 14px;
-  padding: 2px;
   border-radius: 5px;
   font-family: 'Arial Black', Gadget, sans-serif;
   background-image: linear-gradient(
@@ -88,7 +82,6 @@
   font-size: 14px;
   text-align: center;
   line-height: 14px;
-  padding: 2px;
   border-radius: 5px;
   font-family: 'Arial Black', Gadget, sans-serif;
   background-image: linear-gradient(
@@ -146,8 +139,6 @@ button:hover {
   );
   box-shadow: rgba(0, 0, 0, 0.17) 8px 5px 5px 0px;
   width: 220px;
-  margin: 0 auto;
-  display: block;
 }
 
 .options {
@@ -167,6 +158,13 @@ button:hover {
   align-items: center;
   justify-content: space-around;
   flex-grow: 1;
+  border-radius: 14px;
+  background-image: linear-gradient(
+    to right,
+    rgb(209, 233, 255) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(209, 233, 255) 100%
+  );
 }
 
 .algoControls {
