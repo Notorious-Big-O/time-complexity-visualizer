@@ -1,5 +1,6 @@
 import { hardcodedData } from '../../data';
 import styles from './Control.module.css';
+import { scrubNumericInput } from '../../utils/helpers';
 
 const Control = ({
   algoSelect,
@@ -39,7 +40,7 @@ const Control = ({
             type='number'
             id='starting'
             value={startingN}
-            onChange={(e) => setStartingN(e.target.value)}
+            onChange={(e) => setStartingN(scrubNumericInput(e.target.value))}
           />
 
           <label htmlFor='ending'>Ending # of Inputs: </label>
@@ -48,7 +49,7 @@ const Control = ({
             type='number'
             id='ending'
             value={endingN}
-            onChange={(e) => setEndingN(e.target.value)}
+            onChange={(e) => setEndingN(scrubNumericInput(e.target.value))}
           />
 
           <label htmlFor='skip'>Increment By: </label>
@@ -57,7 +58,7 @@ const Control = ({
             type='number'
             id='skip'
             value={resolution}
-            onChange={(e) => setResolution(e.target.value)}
+            onChange={(e) => setResolution(scrubNumericInput(e.target.value))}
           />
         </div>
         <div>
