@@ -153,5 +153,4 @@ async function timeAlgoComplexity(testingParams, callback, ...callBackArgs) {
   }
 }
 
-
-export { testingParamsFactory, timeAlgoComplexity };
+export { testingParamsFactory, dataPointFactory, timeFunction, timeAtN, estimateAverageN, timeAlgoComplexity };

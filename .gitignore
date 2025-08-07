@@ -36,3 +36,5 @@ next-env.d.ts
 
 # Teams are on different development backgrounds
 package-lock.json
+
+coverage
