@@ -33,7 +33,7 @@ const Control = ({
         </div>
 
         <div className={styles.startStopIncrement}>
-          <label htmlFor=''>Starting # of Inputs: </label>
+          <label htmlFor='starting'>Starting # of Inputs: </label>
           <input
             className={styles.startingInput}
             type='number'
@@ -42,7 +42,7 @@ const Control = ({
             onChange={(e) => setStartingN(e.target.value)}
           />
 
-          <label htmlFor=''>Ending # of Inputs: </label>
+          <label htmlFor='ending'>Ending # of Inputs: </label>
           <input
             className={styles.endingInput}
             type='number'
@@ -51,7 +51,7 @@ const Control = ({
             onChange={(e) => setEndingN(e.target.value)}
           />
 
-          <label htmlFor=''>Increment By: </label>
+          <label htmlFor='skip'>Increment By: </label>
           <input
             className={styles.incrementInput}
             type='number'
@@ -61,24 +61,56 @@ const Control = ({
           />
         </div>
         <div>
-          <button onClick={runTests}>Start Test</button>
-          <button className={styles.abortButton}>Abort</button>
+          <div className={styles.buttonSpacer}>
+            <button onClick={runTests}>Start Test</button>
+          </div>
+          <div className={styles.buttonSpacer}>
+            <button className={styles.abortButton}>Abort</button>
+          </div>
         </div>
       </div>
       <div class={styles.algoControls}>
         <p>
           <form>
             <div>
-              <input type='radio' name='algoSelector' value='log(n)' />
-              <label htmlFor=''>O(log(n))</label>
+              <input
+                type='radio'
+                name='algoSelector'
+                value='log(n)'
+                id='logn'
+              />
+              <label htmlFor='logn'>O(log(n))</label>
             </div>
             <div>
-              <input type='radio' name='algoSelector' value='log(n)' />
-              <label htmlFor=''>O(n*log(n)) </label>
+              <input
+                type='radio'
+                name='algoSelector'
+                value='nlog(n)'
+                id='nlogn'
+              />
+              <label htmlFor='nlogn'>O(n*log(n)) </label>
             </div>
             <div>
-              <input type='radio' name='algoSelector' value='log(n)' />
-              <label htmlFor=''>O(n) </label>
+              <input type='radio' name='algoSelector' value='o(n)' id='n' />
+              <label htmlFor='n'>O(n) </label>
+            </div>
+            <div>
+              <input
+                type='radio'
+                name='algoSelector'
+                value='o(n^2)'
+                id='nsquared'
+              />
+              <label htmlFor='nsquared'>O(n^2) </label>
+            </div>
+            <div>
+              <input
+                type='radio'
+                name='algoSelector'
+                value='o(n^3)'
+                id='ncubed'
+              />
+              <label htmlFor='ncubed'>O(n^3) </label>
             </div>
           </form>
         </p>
