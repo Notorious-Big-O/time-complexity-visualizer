@@ -1,5 +1,5 @@
 import React from 'react';
-import BigO from './BigO';
+import BigO from './components/BigO/BigO';
 
 function App() {
   return (
