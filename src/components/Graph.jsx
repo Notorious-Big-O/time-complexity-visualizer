@@ -110,7 +110,7 @@ const Graph = ({ graphData, showComparisons = true }) => {
   };
 
   return (
-    <div className='graph'>
+    <div style={{ width: '100%', height: '100%' }}>
       <Line data={chartData} options={chartOptions} />
     </div>
   );
