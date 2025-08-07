@@ -23,6 +23,7 @@
 .algoSelectBox {
   color: rgb(0, 0, 0);
   font-size: 14px;
+  text-align: center;
   line-height: 14px;
   padding: 12px;
   border-radius: 5px;
@@ -30,9 +31,9 @@
   font-weight: 700;
   background-image: linear-gradient(
     to right,
-    rgb(255, 196, 235) 0%,
+    rgb(255, 174, 203) 0%,
     rgb(255, 255, 255) 50%,
-    rgb(255, 196, 235) 100%
+    rgb(255, 174, 203) 100%
   );
   -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
@@ -52,6 +53,7 @@
 .startingInput {
   color: rgb(0, 0, 0);
   font-size: 14px;
+  text-align: center;
   line-height: 14px;
   padding: 2px;
   border-radius: 5px;
@@ -68,6 +70,7 @@
 .endingInput {
   color: rgb(0, 0, 0);
   font-size: 14px;
+  text-align: center;
   line-height: 14px;
   padding: 2px;
   border-radius: 5px;
@@ -78,12 +81,12 @@
     rgb(255, 255, 255) 50%,
     rgb(255, 204, 145) 100%
   );
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
 }
 .incrementInput {
   color: rgb(0, 0, 0);
   font-size: 14px;
+  text-align: center;
   line-height: 14px;
   padding: 2px;
   border-radius: 5px;
@@ -94,16 +97,9 @@
     rgb(255, 255, 255) 50%,
     rgb(255, 204, 145) 100%
   );
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
 }
 
-.myButton:hover {
-  background: #1c6ea4;
-}
-.myButton:active {
-  background: #144e75;
-}
 button {
   color: rgb(255, 255, 255);
   font-size: 13px;
@@ -120,18 +116,27 @@ button {
   );
   box-shadow: rgba(0, 0, 0, 0.17) 8px 5px 5px 0px;
   border: 2px solid rgb(0, 0, 0);
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 1rem;
+  width: 220px;
+  margin: 0 auto;
 }
+
 .myButton:hover {
   background: #46ea15;
 }
 .myButton:active {
   background: #3a950c;
 }
+
 button:hover {
   border-color: #388e12;
 }
-
+.buttonSpacer {
+  padding: 5px;
+}
 .abortButton {
   background-image: linear-gradient(
     to right,
@@ -140,6 +145,9 @@ button:hover {
     rgb(117, 20, 20) 100%
   );
   box-shadow: rgba(0, 0, 0, 0.17) 8px 5px 5px 0px;
+  width: 220px;
+  margin: 0 auto;
+  display: block;
 }
 
 .options {
@@ -151,4 +159,19 @@ button:hover {
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   color: #000000;
+}
+
+.controlBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.algoControls {
+  flex-basis: 70%;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+  max-width: 200px;
 }
