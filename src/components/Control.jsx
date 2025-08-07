@@ -1,5 +1,5 @@
 import { hardcodedData } from '../../data';
-import styles from "./Control.module.css"
+import styles from './Control.module.css';
 
 const Control = ({
   algoSelect,
@@ -16,45 +16,43 @@ const Control = ({
     <div className='control'>
       <div>
         <div className={styles.algoSection}>
-          <label htmlFor=''>Algo: </label>
+          <label htmlFor=''>Choose your Algorithm: </label>
 
           <select
+            className={styles.algoSelectBox}
             name=''
             id=''
             onChange={(e) => setAlgoSelect(hardcodedData[e.target.value])}
           >
-            <option value='bubbleSort'>
-              bubble<div>Sort</div>
-            </option>
+            <option value='bubbleSort'>bubbleSort</option>
             <option value='sortAndRemoveDup'>sortAndRemoveDup</option>
             <option value='countEvens'>countEvens</option>
           </select>
         </div>
       </div>
 
-      <div>
-        <label htmlFor=''>Starting: </label>
+      <div className={styles.startStopIncrement}>
+        <label htmlFor=''>Starting # of Inputs: </label>
         <input
+          className={styles.startingInput}
           type='number'
           id='starting'
           value={startingN}
           onChange={(e) => setStartingN(e.target.value)}
         />
-      </div>
 
-      <div>
-        <label htmlFor=''>Stopping: </label>
+        <label htmlFor=''>Ending # of Inputs: </label>
         <input
+          className={styles.endingInput}
           type='number'
-          id='stopping'
+          id='ending'
           value={endingN}
           onChange={(e) => setEndingN(e.target.value)}
         />
-      </div>
 
-      <div>
-        <label htmlFor=''>Increment: </label>
+        <label htmlFor=''>Increment By: </label>
         <input
+          className={styles.incrementInput}
           type='number'
           id='skip'
           value={resolution}
@@ -63,7 +61,7 @@ const Control = ({
       </div>
       <div>
         <button onClick={runTests}>Start Test</button>
-        <button>Abort</button>
+        <button className={styles.abortButton}>Abort</button>
       </div>
     </div>
   );

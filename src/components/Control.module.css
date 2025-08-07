@@ -1,11 +1,154 @@
-.control{
-  display:flex;
+.control {
+  display: flex;
   flex-direction: column;
   background-color: pink;
+}
+.top {
+  background-color: rgb(111, 184, 209);
 }
 
 .algoSection {
   display: flex;
-  flex-direction: row;
-  background-color: green;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  padding: 1rem;
+}
+
+.algoSelectBox {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 14px;
+  padding: 12px;
+  border-radius: 5px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 196, 235) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(255, 196, 235) 100%
+  );
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+}
+
+.startStopIncrement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  padding: 2rem;
+}
+
+.startingInput {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 14px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 204, 145) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(255, 204, 145) 100%
+  );
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+}
+.endingInput {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 14px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 204, 145) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(255, 204, 145) 100%
+  );
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+}
+.incrementInput {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 14px;
+  padding: 2px;
+  border-radius: 5px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 204, 145) 0%,
+    rgb(255, 255, 255) 50%,
+    rgb(255, 204, 145) 100%
+  );
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.28);
+}
+
+.myButton:hover {
+  background: #1c6ea4;
+}
+.myButton:active {
+  background: #144e75;
+}
+button {
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  line-height: 13px;
+  padding: 12px;
+  border-radius: 34px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    rgb(28, 110, 164) 0%,
+    rgb(35, 136, 203) 50%,
+    rgb(20, 78, 117) 100%
+  );
+  box-shadow: rgba(0, 0, 0, 0.17) 8px 5px 5px 0px;
+  border: 2px solid rgb(0, 0, 0);
+  display: inline-block;
+}
+.myButton:hover {
+  background: #46ea15;
+}
+.myButton:active {
+  background: #3a950c;
+}
+button:hover {
+  border-color: #388e12;
+}
+
+.abortButton {
+  background-image: linear-gradient(
+    to right,
+    rgb(164, 28, 28) 0%,
+    rgb(203, 35, 35) 50%,
+    rgb(117, 20, 20) 100%
+  );
+  box-shadow: rgba(0, 0, 0, 0.17) 8px 5px 5px 0px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #000000;
 }
